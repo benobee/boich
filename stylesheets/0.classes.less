@@ -1,0 +1,235 @@
+.Index-page-background-image {
+    section:not(.Index-page--has-image) {
+        background-image: url(https://static1.squarespace.com/static/5988d52debbd1a1db1a49be1/t/5993d03c8419c28f50ce6269/1502859325314/bg-wines.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}
+
+.Header.Header--bottom {
+    background: white;
+}
+
+.Parallax-host {
+    img {
+        transition: transform 5s ease-in-out;
+        transform: scale(1.1);
+        &.animate {
+            transform: scale(1);
+        }
+    }
+}
+
+.link-backgrounds {
+    .Header-nav-inner {
+        background: rgba(250, 250, 250, 0.7) !important;
+        box-shadow: 1px 2px 30px rgba(10, 10, 10, 0.2);
+        border-radius: 2px;
+    }
+}
+
+.collection-view(@image, @text) {
+    section {
+        position: relative;
+        .sqs-col-8 {
+            width: 75%;
+        }
+        .sqs-col-4 {
+            width: 25%;
+            .sqs-block {
+                padding-bottom: 0;
+                padding-top: 0;
+            }
+        }
+        h3 {
+            margin-bottom: 0.5em !important;
+            &:hover {
+                color: @active;
+                cursor: pointer;
+            }
+        }
+    }
+    .collection-content {
+        position: relative;
+        .close {
+            display: none;
+        }
+        @media screen and (max-width:1024px) {
+            display: none;
+        }
+        .media-wrapper {
+            opacity: 0;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            transition: opacity 0.8s 0.2s;
+            display: flex;
+            flex-wrap: wrap;
+            .image {
+                box-shadow: 1px 2px 30px rgba(10, 10, 10, 0.2);
+                width: @image;
+                transform: translate(0px, 30px);
+                transition: opacity 0.8s 0.2s, transform 0.8s 0.2s;
+                opacity: 0;
+            }
+            .meta {
+                width: @text;
+                overflow: hidden;
+                transition: opacity 0.3s 0.6s, transform 0.6s 0.5s ease-in-out;
+                opacity: 0;
+                transform: translate(0px, 10px);
+                z-index: 4;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background: white;
+                box-shadow: 1px 2px 30px rgba(10, 10, 10, 0.2);
+                .meta-content {
+                    padding: 2em;
+                    .meta-title {
+                        font-size: 1em;
+                        font-weight: 800;
+                    }
+                    .meta-description {
+                        font-size: 0.8em;
+                        a {
+                            background: #53534A;
+                            color: white !important;
+                            padding: 0.25em 1em;
+                            transition: opacity 0.3s;
+                            &:hover {
+                                opacity: 0.8;
+                            }
+                        }
+                    }
+                }
+            }
+            &.active {
+                position: relative;
+                opacity: 1;
+                visibility: visible;
+                .image,
+                .meta {
+                    opacity: 1;
+                }
+                .image {
+                    transform: translate(0, 0);
+                }
+                .meta {
+                    transform: translate(0, 0%);
+                }
+            }
+        }
+    }
+}
+
+.collection-list.nav {
+    display: flex;
+    flex-direction: column;
+    .mobile,
+    .mobile-inject {
+        display: none;
+    }
+    @media screen and (max-width:1024px) {
+        .menu-nav.destop {
+            display: none;
+        }
+        .menu-nav.mobile {
+            display: block;
+        }
+        .mobile-inject {
+            display: block;
+            height: 0px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s 0.3s, height 0.15s;
+            &.active {
+                height: 100%;
+                opacity: 1;
+                visibility: visible;
+            }
+            .background-image {
+                width: 100%;
+                height: 300px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+            }
+            .meta-title {
+                display: none;
+            }
+            .meta-description {
+                font-size: 16px;
+                padding: 1em 0;
+            }
+        }
+    }
+    .item {
+        &:hover {
+            .title {
+                color: @active;
+            }
+            cursor:pointer;
+        }
+        &.active {
+            .title {
+                color: @active;
+            }
+        }
+        display:flex;
+        justify-content:center;
+        flex-direction:column;
+        line-height:1.2em;
+        padding:0.25em 0em;
+        border-bottom:1px solid rgba(100, 100, 100, 0.15);
+        &:last-child {
+            border-bottom: none;
+        }
+        .title {
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .meta-tag {
+            font-style: italic;
+            opacity: 0.6;
+            font-size: 12px;
+        }
+        .meta-category {
+            opacity: 0.6;
+            font-size: 12px;
+        }
+    }
+}
+
+
+/*** DESIGN LAYOUT COLLAGE ***/
+
+.design-layout-collage {
+    &.image-position-left {
+        .intrinsic {
+            transform: translateX(20px);
+        }
+        .image-card-wrapper {
+            transform: translateX(-10px);
+        }
+    }
+    &.image-position-right {
+        .intrinsic {
+            transform: translateY(-20px);
+        }
+        .image-card-wrapper {
+            transform: translateY(10px);
+        }
+    }
+    .intrinsic {
+        transition: opacity 0.8s, transform 1.2s;
+        opacity: 0;
+    }
+    .image-card-wrapper {
+        transition: opacity 0.3s 0.2s ease-in-out, transform 0.6s 0.2s ease-in-out;
+        opacity: 0;
+    }
+}

@@ -1,9 +1,8 @@
-/*** HOME PAGE ***/
-
-#collection-5988d5b9f9a61e6c4ed82d75 {
+#collection-5988da3315d5dbea8bed3471,
+#collection-5988da42197aea576c44bd13 {
     .Index-page-background-image;
     .design-layout-collage {
-        &[data-scrollmap-is-visible="true"].image-position-left {
+        &[data-scrollmap-triggered-in="true"].image-position-left {
             .intrinsic {
                 opacity: 1;
                 transform: translateX(0px);
@@ -13,7 +12,7 @@
                 transform: translateY(0px);
             }
         }
-        &[data-scrollmap-is-visible="true"].image-position-right {
+        &[data-scrollmap-triggered-in="true"].image-position-right {
             .intrinsic {
                 opacity: 1;
                 transform: translateY(0px);
@@ -23,5 +22,16 @@
                 transform: translateY(0px);
             }
         }
+    }
+}
+
+.sqs-edit-mode-active {
+    section[id*=subnav] {
+        .sqs-block-html {
+            padding: 150px !important;
+        }
+    }
+    ul {
+        display: block !important;
     }
 }

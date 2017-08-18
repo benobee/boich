@@ -1,0 +1,59 @@
+/*** WINES ***/
+
+#collection-59920eea6b8f5b6ace25809d {
+    .Index-page-content {
+        max-width: 100%;
+    }
+    .collection-view(30%, 70%);
+    .meta-content {
+        p,
+        li {
+            font-size: 14px;
+            line-height: 1.3em;
+        }
+    }
+    .background-image {
+        width: 100%;
+        height: 400px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        @media screen and (max-width: 500px) {
+            background-size:contain;
+        }
+    }
+    .mobile-inject {
+        .media-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            .image {
+                width: 30%;
+            }
+            .meta {
+                width: 70%;
+                .meta-content {
+                    padding: 1em;
+                }
+            }
+            @media screen and (max-width:500px) {
+                .image,
+                .meta {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .sqs-row {
+        @media screen and (max-width: 1024px) {
+            display:flex;
+            flex-direction: column-reverse;
+            .sqs-col-8 {
+                width: 100% !important;
+            }
+            .sqs-col-4 {
+                width: 100% !important;
+                margin-bottom: 1em;
+            }
+        }
+    }
+}

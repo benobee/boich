@@ -1,0 +1,72 @@
+/*** VINEYARDS ***/
+
+#collection-598c7e099f7456493d10168a {
+    .Index-page-content {
+        max-width: 100%;
+    }
+    .main-image {
+        text-align: center;
+        transition: opacity 0.2s;
+        @media screen and (min-width: 1024px) {
+            &.hide {
+                height:0;
+                opacity: 0;
+            }
+        }
+        @media screen and (min-width:1200px) and (max-width:1200px) {
+            .sqs-col-8 {
+                width: 70% !important;
+            }
+            .sqs-col-4 {
+                width: 30% !important;
+            }
+        }
+    }
+    .sqs-row {
+        @media screen and (max-width: 1024px) {
+            display:flex;
+            flex-direction: column-reverse;
+            .sqs-col-8 {
+                width: 100% !important;
+            }
+            .sqs-col-4 {
+                width: 100% !important;
+                margin-bottom: 1em;
+            }
+        }
+    }
+    .collection-view(50%, 50%);
+    @media screen and (max-width:1200px) {
+        .image,
+        .meta {
+            width: 100% !important;
+        }
+    }
+    .background-image {
+        width: 100%;
+        height: 580px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+    }
+    .image {
+        @media screen and (max-width: 1200px) {
+            max-height:350px;
+            .background-image {
+                max-height: 350px !important;
+            }
+        }
+    }
+}
+
+.sqs-edit-mode-active,
+.sqs-edit-mode {
+    .design-layout-collage {
+        .intrinsic,
+        .image-card-wrapper {
+            transform: none !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+    }
+}
