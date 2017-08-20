@@ -22,12 +22,14 @@ import Scrollmap from "scrollmap";
 
                 //set the first item to active in the menu
                 $(".collection-list.nav .item:nth-child(1)").addClass("active");
-                $(".collection-content .media-wrapper:nth-child(1)").addClass("active");
+                $(".wines .media-wrapper:nth-child(1)").addClass("active");
 
                 //set the first content item to active
-                const firstItem = $(".collection-content .media-wrapper:nth-child(1)").clone();
+                const firstItem = $(".wines .media-wrapper:nth-child(1)").clone();
 
-                $(".collection-list.nav .item:nth-child(1)").find(".mobile-inject").html(firstItem).addClass("active");
+                if (firstItem) {
+                    $(".collection-list.nav .item:nth-child(1)").find(".mobile-inject").html(firstItem).addClass("active");
+                }
 
                 //bind click events in the nav
                 $(".collection-list.nav .item").on("click", (e) => {
