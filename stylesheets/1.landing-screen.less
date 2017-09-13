@@ -1,0 +1,205 @@
+/* Landing screen */
+
+@logoBackground: 1437;
+@logoLetter: 1000;
+@logoName: 400;
+
+@keyframes logoBackground {
+    0 {
+        fill-opacity: 0;
+        stroke-dashoffset: @logoBackground;
+        opacity: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill-opacity: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes logoLetter {
+    0 {
+        opacity: 0;
+        stroke-dashoffset: @logoLetter;
+    }
+    10% {
+        opacity: 0.5;
+        fill-opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        fill-opacity: 1;
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes logoName {
+    from {
+        fill-opacity: 0;
+        stroke-dashoffset: @logoName;
+    }
+    to {
+        stroke-dashoffset: 0;
+        fill-opacity: 1;
+        opacity: 1;
+    }
+}
+
+body.branding-landing-screen {
+    overflow: hidden;
+    .Mobile-bar {
+        display: none;
+    }
+}
+
+.landing-screen {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 99999999;
+    transition: opacity 1.5s;
+    position: fixed;
+    display: flex;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &.SMIL.incompatible {
+        #logo-background,
+        #logo-letter,
+        #logo-name {
+            opacity: 1;
+            path {
+                opacity: 1;
+                stroke-dashoffset: 0;
+                fill-opacity: 1;
+            }
+        }
+        .inner-content {
+            .button {
+                opacity: 1;
+            }
+        }
+    }
+    &.SMIL.compatible {
+        #logo-background {
+            animation: logoBackground 4.5s ease-in-out forwards;
+            animation-delay: 1.4s;
+        }
+        #logo-letter {
+            path {
+                animation: logoLetter 5s ease-in-out forwards;
+            }
+        }
+        #logo-name {
+            path {
+                animation: logoName 3.5s ease-in-out forwards;
+                animation-delay: 3.3s;
+                fill-opacity: 0;
+            }
+        }
+    }
+    svg {
+        margin-top: 1em;
+        width: 100%;
+        margin-bottom: 2em;
+        #logo-background {
+            opacity: 0;
+            fill-opacity: 0;
+            stroke: @dark-grey;
+            stroke-dasharray: @logoBackground;
+            stroke-dashoffset: @logoBackground;
+        }
+        #logo-letter {
+            path {
+                opacity: 0;
+                stroke-dasharray: @logoLetter;
+                stroke-dashoffset: @logoLetter;
+            }
+        }
+        #logo-name {
+            path {
+                stroke-dasharray: @logoName;
+                stroke-dashoffset: @logoName;
+                stroke: @stroke;
+                opacity: 0;
+                stroke: @stroke;
+                fill: @stroke;
+            }
+        }
+        .cls-2 {
+            fill: @stroke;
+            animation: dash 2s linear forwards;
+        }
+        .cls-3,
+        .cls-6 {
+            fill: none;
+            stroke-miterlimit: 10;
+        }
+        .cls-3 {
+            stroke: @stroke;
+        }
+        .cls-4 {
+            mask: url(#mask);
+        }
+        .cls-5 {
+            opacity: 0.35;
+            mix-blend-mode: multiply;
+        }
+        .cls-6 {
+            stroke: #838383;
+        }
+        .cls-7 {
+            filter: url(#luminosity-invert);
+        }
+    }
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+    &.transition-out {
+        opacity: 0;
+        .inner-content {
+            opacity: 0;
+        }
+    }
+    &.full-width {
+        width: 100%;
+        height: 100vh;
+    }
+    &.centered {
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+    &.visited {
+        display: none;
+    }
+    &.background-image {
+        background-position: center top;
+        background-size: cover;
+        min-height: 1100px;
+        background-image: url(https://static1.squarespace.com/static/5988d52debbd1a1db1a49be1/t/59b0906d59cc68f4ceb748ae/1504743534770/bg-body.jpg);
+    }
+    .inner-content {
+        text-align: center;
+        max-width: 275px;
+        transition: opacity 0.6s;
+        .button {
+            color: white;
+            background-color: @dark-grey;
+            display: inline;
+            padding: 0.25em 1.5em;
+            cursor: pointer;
+            transition: opacity 0.4s;
+            z-index: 9999;
+            animation: logoName 1.5s forwards;
+            animation-delay: 4.8s;
+            opacity: 0;
+            border: 2px solid #f4f4f4;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}
