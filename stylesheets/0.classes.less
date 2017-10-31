@@ -54,6 +54,11 @@
         @media screen and (max-width:1024px) {
             display: none;
         }
+        &.wines {
+            .meta-title {
+                margin-bottom: 1em;
+            }
+        }
         .media-wrapper {
             opacity: 0;
             visibility: hidden;
@@ -139,6 +144,16 @@
     .mobile-inject {
         display: none;
     }
+    &.wines {
+        .item {
+            padding-top: 0.3em;
+            padding-bottom: 0.3em;
+            .title {
+                font-weight: 800;
+                font-size: 0.9em;
+            }
+        }
+    }
     @media screen and (max-width:1024px) {
         .menu-nav.destop {
             display: none;
@@ -180,15 +195,29 @@
         }
     }
     .item {
+        .title {
+            margin-bottom: 0.25em;
+            transition: opacity 0.4s, color 0.4s;
+            opacity: 0.6;
+        }
+        &:hover,
+        h3:hover {
+            .title {
+                opacity: 1;
+                color: @activeColor !important;
+            }
+        }
         &:hover {
             .title {
-                color: @active;
+                opacity: 1;
+                color: @activeColor;
             }
             cursor:pointer;
         }
         &.active {
             .title {
-                color: @active;
+                opacity: 1;
+                color: @activeColor;
             }
         }
         display:flex;
@@ -215,6 +244,8 @@
         }
     }
 }
+
+
 
 
 
