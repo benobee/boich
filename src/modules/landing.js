@@ -28,7 +28,14 @@ const Landing = {
             this.animations();
             this.detect();
             this.events();
+        } else {
+            this.body.classList.add("has-visited");
         }
+    },
+    cacheDOM() {
+        this.body = document.querySelector("body");
+        this.button = this.body.querySelector(".landing-screen .button");
+        this.branding = this.body.querySelector(".landing-screen");
     },
     animations() {
         this.branding.classList.add("SMIL");
@@ -55,14 +62,10 @@ const Landing = {
             this.isFirstSession = true;
         }
     },
-    cacheDOM() {
-        this.body = document.querySelector("body");
-        this.button = this.body.querySelector(".landing-screen .button");
-        this.branding = this.body.querySelector(".landing-screen");
-    },
     events() {
         $(this.button).on("click", () => {
             this.branding.classList.add("transition-out");
+            this.body.classList.add("has-visited");
 
             setTimeout(() => {
                 this.body.classList.remove("branding-landing-screen");
