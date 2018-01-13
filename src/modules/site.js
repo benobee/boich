@@ -47,6 +47,7 @@ const Site = {
             $(".collection-list.nav .item .mobile-inject").removeClass("active");
 
             const target = $(e.currentTarget).find(".mobile-inject");
+
             $(target).html(clone).addClass("active");
             //handle scrolling UI when mobile
             if (window.innerWidth < 1024) {

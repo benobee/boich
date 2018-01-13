@@ -42,10 +42,10 @@ const Landing = {
     },
     detect() {
         // Internet Explorer 6-11
-        const isIE = /*@cc_on!@*/ false || !!document.documentMode;
+        const isIE = /*@cc_on!@*/ false || Boolean(document.documentMode);
 
         // Edge 20+
-        const isEdge = !isIE && !!window.StyleMedia;
+        const isEdge = !isIE && Boolean(window.StyleMedia);
 
         if (!(isIE || isEdge)) {
             this.branding.classList.add("compatible");

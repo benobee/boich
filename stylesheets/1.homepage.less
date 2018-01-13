@@ -1,6 +1,16 @@
 /*** HOME PAGE ***/
-
 #collection-5988d5b9f9a61e6c4ed82d75 {
+    .Site,
+    .Parallax-host-outer {
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    &.has-visited {
+        .Site,
+        .Parallax-host-outer {
+            opacity: 1;
+        }
+    }
     .Index-page-background-image;
     .design-layout-collage {
         &[data-scrollmap-is-visible="true"].image-position-left {
